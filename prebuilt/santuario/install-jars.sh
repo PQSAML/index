@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile="xmlsec-4.0.3-PQ.jar" -DgroupId="org.apache.santuario" -DartifactId="xmlsec" -Dversion="4.0.3-PQ" -Dpackaging=jar

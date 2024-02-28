@@ -1,0 +1,3 @@
+mvn install:install-file -Dfile="bcprov-jdk18on-1.78-PQ.jar" -DgroupId="org.bouncycastle" -DartifactId="bcprov-jdk18on" -Dversion="1.78-PQ" -Dpackaging=jar
+mvn install:install-file -Dfile="bcpkix-jdk18on-1.78-PQ.jar" -DgroupId="org.bouncycastle" -DartifactId="bcpkix-jdk18on" -Dversion="1.78-PQ" -Dpackaging=jar
+mvn install:install-file -Dfile="bcutil-jdk18on-1.78-PQ.jar" -DgroupId="org.bouncycastle" -DartifactId="bcutil-jdk18on" -Dversion="1.78-PQ" -Dpackaging=jar

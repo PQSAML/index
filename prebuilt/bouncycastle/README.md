@@ -1,0 +1,1 @@
+To install BouncyCastle into your local Maven repository run `install-jars.sh`.

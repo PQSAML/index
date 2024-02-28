@@ -1,0 +1,1 @@
+To install OpenSAML into your local Maven repository run `install-jars.sh`.
