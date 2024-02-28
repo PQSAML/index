@@ -2,11 +2,11 @@
 This repository serves as an index of repositories used in the post-quantum SAML paper.
 
 In total, we have 5 repositories:
-- This index repository (https://github.com/PQSAML/index).
-- BouncyCastle fork repository (https://github.com/PQSAML/bc-java-pqsaml).
-- Apache Santuario fork repository (https://github.com/PQSAML/santuario-xml-security-java-pqsaml).
-- OpenSAML fork repository (https://github.com/PQSAML/java-opensaml-pq).
-- A repository containing our benchmark scripts (https://github.com/PQSAML/benchmarks).
+- This index repository https://github.com/PQSAML/index.
+- BouncyCastle fork repository https://github.com/PQSAML/bc-java-pqsaml.
+- Apache Santuario fork repository https://github.com/PQSAML/santuario-xml-security-java-pqsaml.
+- OpenSAML fork repository https://github.com/PQSAML/java-opensaml-pq/tree/4.3.0-pq.
+- A repository containing our benchmark scripts https://github.com/PQSAML/benchmarks.
 
 Note that forked repositories contain their own build instructions but we provide a complete guide how to build the benchmark scripts from scratch here. Alternately, we provide pre-built executable JARs.
 
