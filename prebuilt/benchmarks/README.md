@@ -1,1 +1,1 @@
-For usage instructions see https://github.com/PQSAML/index/blob/main/README.md
+For usage instructions see https://github.com/PQSAML/index?tab=readme-ov-file#running-benchmark-scripts

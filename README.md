@@ -8,16 +8,16 @@ In total, we have 5 repositories:
 - OpenSAML fork repository (https://github.com/PQSAML/java-opensaml-pq).
 - A repository containing our benchmark scripts (https://github.com/PQSAML/benchmarks).
 
-Note that forked repositories contain their own build instructions but we provide a complete guide how to build the benchmark scripts from scratch here.
+Note that forked repositories contain their own build instructions but we provide a complete guide how to build the benchmark scripts from scratch here. Alternately, we provide pre-built executable JARs.
 
 # Overview 
 Everything is in Java. We tested everything on MacOS (tested on version 14.3.1, MacBook Pro M1) with Java JDK 21. Similar build process should be reproducible on other UNIX-based systems.
 
-Because the build process is fairly complex due to the amount of dependencies, we also provide pre-built JARs at https://github.com/PQSAML/index/prebuilt. 
+Because the build process is fairly complex due to the amount of dependencies, we also provide pre-built JARs at https://github.com/PQSAML/index/tree/main/prebuilt. 
 
 Each library subfolder (BouncyCastle, Apache Santuario, OpenSAML) contains a bash script which installs the JARs into the local Maven repository in case you want to skip building certain libraries and use the pre-built ones. 
 
-Note that the folder `benchmarks` https://github.com/PQSAML/index/prebuilt/benchmarks contains the final executable benchmark scripts which can be run using instructions below. For those, you only need Java 17 (we tested it on JDK 20 and JDK 21).
+Note that the folder `benchmarks` https://github.com/PQSAML/index/tree/main/prebuilt/benchmarks contains the final executable benchmark scripts which can be run using instructions below https://github.com/PQSAML/index?tab=readme-ov-file#running-benchmark-scripts. For those, you only need Java 17 (we tested it on JDK 20 and JDK 21).
 
 If you want to build it all from scratch, follow all the steps below.
 
@@ -145,7 +145,7 @@ Note that OpenSAML latest version is 5+ but we developed our solutions for 4.3.0
 
 Before we can initiate the build. We need to modify Maven settings and add dependency repositories as noted here https://shibboleth.atlassian.net/wiki/spaces/DEV/pages/2891317253/MavenRepositories. On MacOS, we need to create a file name `settings.xml` in folder the `~/.m2/` with the contents available at https://github.com/PQSAML/index/blob/main/settings.xml or https://shibboleth.atlassian.net/wiki/spaces/DEV/pages/2891317253/MavenRepositories 
 
-To build, we need to download the code, checkout to the correct branch and install using maven. In total:
+To build OpenSAML, we need to download the code, checkout to the correct branch and install using maven. In total:
 ```
 git clone https://github.com/PQSAML/java-opensaml-pq
 cd java-opensaml-pq
@@ -253,9 +253,9 @@ java -jar BenchmarkSAML.jar 10000 false false
 ```
 - Backward compatible hybrid post-quantum SAML SSO
 ```
-java -jar BenchmarkSignatures.jar 10000 true false
+java -jar BenchmarkSAML.jar 10000 true false
 ```
 - Non-backward compatible hybrid post-quantum SAML SSO
 ```
-java -jar BenchmarkSignatures.jar 10000 false true
+java -jar BenchmarkSAML.jar 10000 false true
 ```
