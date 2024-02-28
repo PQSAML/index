@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+
+    <activeProfiles>
+        <activeProfile>shibboleth-repositories</activeProfile>
+    </activeProfiles>
+
+    <profiles>
+        <profile>
+            <id>shibboleth-repositories</id>
+            <repositories>
+                <repository>
+                    <id>shibboleth-releases</id>
+                    <name>Shibboleth Releases Repository</name>
+                    <url>https://build.shibboleth.net/maven/releases/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <checksumPolicy>warn</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>shibboleth-snapshots</id>
+                    <name>Shibboleth Snapshots Repository</name>
+                    <url>https://build.shibboleth.net/maven/snapshots/</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>shibboleth-thirdparty</id>
+                    <name>Shibboleth Thirdparty Repository</name>
+                    <url>https://build.shibboleth.net/maven/thirdparty/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>shibboleth-thirdparty-snapshots</id>
+                    <name>Shibboleth Thirdparty Snapshots Repository</name>
+                    <url>https://build.shibboleth.net/maven/thirdparty-snapshots/</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <checksumPolicy>warn</checksumPolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>shibboleth-releases</id>
+                    <name>Shibboleth Releases Repository</name>
+                    <url>https://build.shibboleth.net/maven/releases/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>shibboleth-snapshots</id>
+                    <name>Shibboleth Snapshots Repository</name>
+                    <url>https://build.shibboleth.net/maven/snapshots/</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <!-- This HTTPS mirror of Central may be required when building projects based on the V7 parent project.
+         For example, net.shibboleth.utilities.jetty9:jetty94-dta-ssl:1.0.0 which depends on net.shibboleth:parent:7.11.0
+         This is because the V7 parent project defines the Central repository URL using HTTP instead of HTTPS.
+         See https://maven.apache.org/docs/3.8.1/release-notes.html#how-to-fix-when-i-get-a-http-repository-blocked
+    -->
+    <!--
+    <mirrors>
+        <mirror>
+            <id>central-https</id>
+            <name>HTTPS mirror of HTTP Central</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+    </mirrors>
+    -->
+
+</settings>
