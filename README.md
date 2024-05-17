@@ -39,6 +39,8 @@ We need these build tools:
 - Gradle 8.6
 - Git
 
+Note that the [`setupEnv.sh`](https://github.com/PQSAML/index/blob/main/setupEnv.sh) provides an automated way to setup the JDKs, Maven and Gradle (tested on Ubuntu 22.04). It is an aggregation of the commands described below.
+
 ### JDK
 If you choose to built BouncyCastle from scratch, note that BouncyCastle requires to have 4 versions of JDK installed. 
 
