@@ -150,6 +150,7 @@ To build OpenSAML, we need to download the code, checkout to the correct branch 
 git clone https://github.com/PQSAML/java-opensaml-pq
 cd java-opensaml-pq
 git checkout 4.3.0-pq
+cd opensaml-parent
 mvn -Prelease -DskipTests -D no-check-m2 -Dmaven.javadoc.skip=true install
 ```
 
