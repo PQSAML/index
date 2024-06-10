@@ -29,8 +29,10 @@ Note that running benchmarks inside a docker container may result in decreased p
 ## Building Docker image
 This will run the whole build process.
 ``` 
-docker build -t pqsamlbenchmarks -f Dockerfile .
+docker build -t pqsamlbenchmarks -f Dockerfile-[arch] .
 ```
+
+Where `[arch]` is `x86` if you are running docker on an x86-64 system and `arm` if you are on an ARM64 system.
 
 ## Running benchmarks inside Docker
 To run benchmarks inside the Docker container we have prepared a helped bash script at https://github.com/PQSAML/index/blob/main/dockerRunBenchmarks.sh. The result files are going to be placed inside the current working directory (from which the bash script is run).
