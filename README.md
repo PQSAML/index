@@ -21,6 +21,44 @@ Note that the folder `benchmarks` https://github.com/PQSAML/index/tree/main/preb
 
 If you want to build it all from scratch, follow all the steps below.
 
+## Docker build
+We also provide a Dockerfile which sets up the build environment, builds everything and can be used to run benchmarks. 
+
+Note that running benchmarks inside a docker container may result in decreased performance compared to running it natively.
+
+### Building Docker image
+This will run the whole build process.
+``` 
+docker build -t pqsamlbenchmarks -f Dockerfile
+```
+
+### Running benchmarks inside Docker
+To run benchmarks inside the Docker container we have prepared a helped bash script at https://github.com/PQSAML/index/blob/main/dockerRunBenchmarks.sh. The result files are going to be placed inside the current working directory (from which the bash script is run).
+
+To run each benchmark simply run
+```
+./dockerRunBenchmarks.sh [type]
+```
+where `[type]` can be these values:
+- `sig:purely` - Runs the purely post-quantum XML signatures benchmark.
+- `sig:composite` - Runs the composite hybrid post-quantum XML signatures benchmark.
+- `sig:separate` - Runs the separate hybrid post-quantum XML signatures benchmark.
+- `pke:purely` - Runs the purely post-quantum XML PKE benchmark.
+- `pke:hybrid` - Runs the hybrid post-quantum XML PKE benchmark.
+- `saml:purely` - Runs the purely post-quantum SAML SSO benchmark.
+- `saml:back` - Runs the backward compatible hybrid post-quantum SAML SSO benchmark.
+- `saml:nonback` - Runs the non-backward compatible hybrid post-quantum SAML SSO benchmark.
+
+### Alternative option
+Alternatively, you can simply build the docker image and extract the JARs from the running container and run them natively using instructions at https://github.com/PQSAML/index?tab=readme-ov-file#running-benchmark-scripts.
+
+To extract the JARs from the docker container simply run:
+```
+docker run -it --net=none --mount type=bind,source=.,target=/workdir pqsamlbenchmarks /bin/sh -c "cp /home/benchmarks/target/BenchmarkSignatures.jar /workdir/BenchmarkSignatures.jar"
+docker run -it --net=none --mount type=bind,source=.,target=/workdir pqsamlbenchmarks /bin/sh -c "cp /home/benchmarks/target/BenchmarkKEMs.jar /workdir/BenchmarkKEMs.jar"
+docker run -it --net=none --mount type=bind,source=.,target=/workdir pqsamlbenchmarks /bin/sh -c "cp /home/benchmarks/target/BenchmarkSAML.jar /workdir/BenchmarkSAML.jar"
+```
+
 # Complete build process
 The dependency chain is as follows: 
 - our benchmark scripts depend on OpenSAML and BouncyCastle. 
