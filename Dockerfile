@@ -48,7 +48,7 @@ ENV BC_JDK11=/opt/jdk/11
 ENV BC_JDK8=/opt/jdk/8
 ENV JAVA_HOME=/opt/jdk/21
 
-COPY apache-maven-3.9.6-bin.tar.gz maven.tar.gz
+RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz -O maven.tar.gz
 
 RUN tar -xvzf maven.tar.gz
 RUN rm maven.tar.gz
@@ -58,7 +58,7 @@ RUN mv apache-maven-3.9.6/* /opt/maven
 RUN rm -rf apache-maven-3.9.6
 ENV PATH="$PATH:/opt/maven/bin"
 
-COPY gradle-8.6-bin.zip gradle.zip
+RUN wget https://services.gradle.org/distributions/gradle-8.6-bin.zip -O gradle.zip
 
 RUN unzip gradle.zip
 
@@ -82,7 +82,7 @@ RUN git clone https://github.com/PQSAML/santuario-xml-security-java-pqsaml
 WORKDIR santuario-xml-security-java-pqsaml
 RUN mvn install -DskipTests
 
-COPY settings.xml /root/.m2/settings.xml
+RUN wget https://raw.githubusercontent.com/PQSAML/index/main/settings.xml -O /root/.m2/settings.xml
 
 WORKDIR /home
 RUN git clone https://github.com/PQSAML/java-opensaml-pq

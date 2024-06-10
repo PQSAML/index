@@ -29,7 +29,7 @@ Note that running benchmarks inside a docker container may result in decreased p
 ## Building Docker image
 This will run the whole build process.
 ``` 
-docker build -t pqsamlbenchmarks -f Dockerfile
+docker build -t pqsamlbenchmarks -f Dockerfile .
 ```
 
 ## Running benchmarks inside Docker
