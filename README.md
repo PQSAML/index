@@ -19,20 +19,20 @@ Each library subfolder (BouncyCastle, Apache Santuario, OpenSAML) contains a bas
 
 Note that the folder `benchmarks` https://github.com/PQSAML/index/tree/main/prebuilt/benchmarks contains the final executable benchmark scripts which can be run using instructions below https://github.com/PQSAML/index?tab=readme-ov-file#running-benchmark-scripts. For those, you only need Java 17 (we tested it on JDK 20 and JDK 21).
 
-If you want to build it all from scratch, follow all the steps below.
+If you want to build it all from scratch, follow all the steps at https://github.com/PQSAML/index?tab=readme-ov-file#complete-build-process or use Docker described at https://github.com/PQSAML/index?tab=readme-ov-file#docker-build-and-execution.
 
-## Docker build
+# Docker build and execution
 We also provide a Dockerfile which sets up the build environment, builds everything and can be used to run benchmarks. 
 
 Note that running benchmarks inside a docker container may result in decreased performance compared to running it natively.
 
-### Building Docker image
+## Building Docker image
 This will run the whole build process.
 ``` 
 docker build -t pqsamlbenchmarks -f Dockerfile
 ```
 
-### Running benchmarks inside Docker
+## Running benchmarks inside Docker
 To run benchmarks inside the Docker container we have prepared a helped bash script at https://github.com/PQSAML/index/blob/main/dockerRunBenchmarks.sh. The result files are going to be placed inside the current working directory (from which the bash script is run).
 
 To run each benchmark simply run
@@ -49,7 +49,7 @@ where `[type]` can be these values:
 - `saml:back` - Runs the backward compatible hybrid post-quantum SAML SSO benchmark.
 - `saml:nonback` - Runs the non-backward compatible hybrid post-quantum SAML SSO benchmark.
 
-### Alternative option
+## Alternative Docker option
 Alternatively, you can simply build the docker image and extract the JARs from the running container and run them natively using instructions at https://github.com/PQSAML/index?tab=readme-ov-file#running-benchmark-scripts.
 
 To extract the JARs from the docker container simply run:
