@@ -21,7 +21,7 @@ echo "Invalid argument"
 exit 1
 fi
 
-docker run -it --net=none --mount type=bind,source=.,target=/workdir pqsamlbenchmarks /bin/sh -c "$COMMAND"
+docker run -it --net=none --mount type=bind,source=$PWD,target=/workdir pqsamlbenchmarks /bin/sh -c "$COMMAND"
 
 
 
