@@ -46,7 +46,7 @@ To run benchmarks inside the Docker container we have prepared a helped bash scr
 
 To run each benchmark simply run
 ```
-./dockerRunBenchmarks.sh [type]
+./dockerRunBenchmark.sh [type]
 ```
 where `[type]` can be these values:
 - `sig:purely` - Runs the purely post-quantum XML signatures benchmark.
@@ -63,9 +63,9 @@ Alternatively, you can simply build the docker image and extract the JARs from t
 
 To extract the JARs from the docker container simply run:
 ```
-docker run -it --net=none --mount type=bind,source=.,target=/workdir pqsamlbenchmarks /bin/sh -c "cp /home/benchmarks/target/BenchmarkSignatures.jar /workdir/BenchmarkSignatures.jar"
-docker run -it --net=none --mount type=bind,source=.,target=/workdir pqsamlbenchmarks /bin/sh -c "cp /home/benchmarks/target/BenchmarkKEMs.jar /workdir/BenchmarkKEMs.jar"
-docker run -it --net=none --mount type=bind,source=.,target=/workdir pqsamlbenchmarks /bin/sh -c "cp /home/benchmarks/target/BenchmarkSAML.jar /workdir/BenchmarkSAML.jar"
+docker run -it --net=none --mount type=bind,source=$PWD,target=/workdir pqsamlbenchmarks /bin/sh -c "cp /home/benchmarks/target/BenchmarkSignatures.jar /workdir/BenchmarkSignatures.jar"
+docker run -it --net=none --mount type=bind,source=$PWD,target=/workdir pqsamlbenchmarks /bin/sh -c "cp /home/benchmarks/target/BenchmarkKEMs.jar /workdir/BenchmarkKEMs.jar"
+docker run -it --net=none --mount type=bind,source=$PWD,target=/workdir pqsamlbenchmarks /bin/sh -c "cp /home/benchmarks/target/BenchmarkSAML.jar /workdir/BenchmarkSAML.jar"
 ```
 
 # Complete build process
